@@ -1,6 +1,8 @@
 body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  text-align: center;
 }
+
 .weatherApp {
   max-width: max-content;
   margin: 15px auto;
@@ -8,4 +10,13 @@ body {
 }
 .searchCity {
   padding: 20px;
+}
+.weatherToday {
+  padding: 20px;
+}
+.weatherNext {
+  padding: 20px;
+}
+.footer {
+  text-align: center;
 }
