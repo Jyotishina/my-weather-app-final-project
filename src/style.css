@@ -1,3 +1,11 @@
-h1 {
-  color: blue;
+body {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.weatherApp {
+  max-width: max-content;
+  margin: 15px auto;
+  border-radius: 20px;
+}
+.searchCity {
+  padding: 20px;
 }

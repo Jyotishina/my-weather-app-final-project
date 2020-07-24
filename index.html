@@ -23,7 +23,177 @@
   </head>
   <body>
     <div class="container"></div>
-    <h1>Hello World</h1>
+    <section class="weatherApp border border-light">
+      
+    <section class="searchCity">
+        <div class="d-flex flex-row justify-content-center">
+            <form id="search-form" class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Please enter a city to get your weather forecast."
+                aria-label="Search city." aria-describedby="button-addon1" id="input-search-city" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-search-city">Search City</button>
+                </div>
+            </form>
+        </div>
+        <div class="d-flex flex row justify-content-center">
+            <button class="btn btn-outline-secondary" type="button" id="button-show-city">Use your current location instead</button>
+        </div>
+    </section>
+
+    <section class="weatherToday">
+        <div class="d-flex flex-row justify-content-center">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <ul>
+                                <li><i class="fas fa-sun"></i> "Description" </li>
+                                <li>"Temperature"</li>
+                                <li>"Max + min temperature</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul>
+                                <li>"Current Time"</li>
+                                <li>"Current Date"</li>
+                                <li>"Current Location"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>          
+    </section>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+            <h2 class="date-next">
+                What about the next
+                <span style="color: rgb(69, 147, 173);" ;>5</span> days ?
+            </h2>
+        </div>
+        <div class="d-flex flex-row align-items-center justify-content-center">
+            <div class="p-2">
+                <div class="flip-card border border-light">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex align-items-center justify-content-center">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flip-card-back d-flex align-items-center justify-content-center">
+                            <p class="card-text">
+                                <span style="font-size: 30px;">20°C</span>
+                                <br />
+                                Sunny
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="flip-card-title">
+                    MON
+                </h2>
+            </div>
+            <div class="p-2">
+                <div class="flip-card border border-light">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex align-items-center justify-content-center">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flip-card-back d-flex align-items-center justify-content-center">
+                            <p class="card-text">
+                                <span style="font-size: 30px;">20°C</span>
+                                <br />
+                                Sunny
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="flip-card-title">
+                    TUE
+                </h2>
+            </div>
+            <div class="p-2">
+                <div class="flip-card border border-light">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex align-items-center justify-content-center">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flip-card-back d-flex align-items-center justify-content-center">
+                            <p class="card-text">
+                                <span style="font-size: 30px;">20°C</span>
+                                <br />
+                                Sunny
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="flip-card-title">
+                    WED
+                </h2>
+            </div>
+            <div class="p-2">
+                <div class="flip-card border border-light">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex align-items-center justify-content-center">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flip-card-back d-flex align-items-center justify-content-center">
+                            <p class="card-text">
+                                <span style="font-size: 30px;">20°C</span>
+                                <br />
+                                Sunny
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="flip-card-title">
+                    THU
+                </h2>
+            </div>
+            <div class="p-2">
+                <div class="flip-card border border-light">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front d-flex align-items-center justify-content-center">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="flip-card-back d-flex align-items-center justify-content-center">
+                            <p class="card-text">
+                                <span style="font-size: 30px;">20°C</span>
+                                <br />
+                                Sunny
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="flip-card-title">
+                    FRI
+                </h2>
+            </div>
+        </div>
+    <section class="weatherNext">
+
+
+
+
+
+
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </section>
+    <small>
+      <a href="https://github.com/evdd86/my-weather-app-final-project.git" target="_blank">Open-source code</a>
+      by Ellen Van der Donckt
+      </a>
+    </small>
     <script src="src/app.js"></script>
   </body>
 </html>
