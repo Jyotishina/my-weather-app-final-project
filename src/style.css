@@ -15,6 +15,13 @@ ul {
   padding: 20px 20px 0px 20px;
 }
 
+.button {
+  border-radius: 50px;
+  border: 2px solid green;
+  box-shadow: none;
+  color: grey;
+  font-style: italic;
+}
 #choose-unit {
   color: grey;
   font-style: italic;
@@ -62,6 +69,9 @@ ul {
     font-size: 100px;
     text-align: center;
   }
+  #degree-sign-current {
+    font-size: 90px;
+  }
   #min-max-current {
     text-align: right;
   }
@@ -79,7 +89,7 @@ ul {
   #card-next-weather {
     background-color: transparent;
     border: none;
-    width: 450px;
+    width: 500px;
     font-family: "Text Me One", sans-serif;
     font-size: 18px;
     margin: 0 auto;
