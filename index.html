@@ -33,8 +33,14 @@
                 </div>
             </form>
         </div>
-        <div class="d-flex flex-row justify-content-center" id="choose-unit">
-            Show temperature in °C or °F
+        <div class="d-flex flex-row justify-content-center align-items-center" id="choose-unit">
+            Show temperature in 
+            &nbsp
+            <button class="button" id="button-temperature-today-celcius">°C</button>
+                &nbsp
+                or 
+                &nbsp
+            <button class="button" id="button-temperature-today-fahrenheit">°F</button>
         </div>
     </section>
 
@@ -56,15 +62,16 @@
                             Scattered clouds
                         </div>
                         <div class="col-6" id="min-max-current">
-                            <i class="fas fa-long-arrow-alt-down"></i> 10° <i class="fas fa-long-arrow-alt-up"></i> 25°
+                            <i class="fas fa-long-arrow-alt-down"></i> <span id="temp-current-min">10</span><span id="degree-sign-min-max-current">°</span> 
+                            <i class="fas fa-long-arrow-alt-up"></i> <span id="temp-current-max">20</span><span id="degree-sign-min-max-current">°</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6" id="emoji-current">
                             <i class="fas fa-sun"></i>
                         </div>
-                        <div class="col-6" id="temp-current">
-                            20°
+                        <div class="col-6">
+                            <span id="temp-current">20</span><span id="degree-sign-current">°</span>
                         </div>
                     </div>
                     <div class="row">
