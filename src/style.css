@@ -1,70 +1,175 @@
 body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-  text-align: center;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
 .weatherApp {
   max-width: max-content;
   margin: 15px auto;
   border-radius: 20px;
 }
 .searchCity {
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
+}
+
+#choose-unit {
+  color: grey;
+  font-style: italic;
+}
+#current-location {
+  font-family: "Snowburst One", cursive;
+  font-size: 60px;
+  text-transform: uppercase;
+}
+#current-date {
+  font-family: "Text Me One", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+#current-time {
+  font-family: "Text Me One", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 .weatherToday {
-  padding: 20px;
-}
-.weatherNext {
-  padding: 20px;
+  padding: 5px 20px;
 }
 @media screen and (min-width: 640px) {
-  .flip-card {
+  #card-current-weather {
     background-color: transparent;
-    width: 110px;
-    height: 100px;
-    perspective: 1000px;
-    margin: 5px;
+    border: 1px solid green;
+    border-radius: 20px;
+    width: 400px;
+    font-family: "Text Me One", sans-serif;
+    font-size: 20px;
+    margin: 15px 0 0 0;
+    background-color: green;
   }
-
-  .flipcard .card-text {
-    font-size: 5px;
+  #card-body-current-weather {
+    padding: 10px;
   }
-
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  #emoji-current {
+    font-size: 100px;
     text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
-
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-    cursor: pointer;
+  #description-current {
+    text-transform: uppercase;
   }
-
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  #temp-current {
+    font-size: 100px;
+    text-align: center;
   }
-
-  .flip-card-front {
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-    color: black;
+  #min-max-current {
+    text-align: right;
   }
-
-  .flip-card-back {
-    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-    color: white;
-    transform: rotateY(180deg);
+  #windspeed-current {
+    text-align: center;
   }
-  .footer {
+  #cloudiness-current {
+    text-align: right;
+  }
+}
+.weatherNext {
+  padding: 10px 20px;
+}
+@media screen and (min-width: 640px) {
+  #card-next-weather {
+    background-color: transparent;
+    border: none;
+    width: 450px;
+    font-family: "Text Me One", sans-serif;
+    font-size: 18px;
+    margin: 0 auto;
+  }
+  #card-body-next-weather {
+    padding: 10px;
+  }
+  #card-next-one {
+    background-color: transparent;
+    margin: 5px;
+    border: green;
+    border-radius: 20px;
+    background-color: green;
+  }
+  #card-next-two {
+    background-color: transparent;
+    margin: 5px;
+    border: green;
+    border-radius: 20px;
+    background-color: green;
+  }
+  #card-next-three {
+    background-color: transparent;
+    margin: 5px;
+    border: green;
+    border-radius: 20px;
+    background-color: green;
+  }
+  #card-next-four {
+    background-color: transparent;
+    margin: 5px;
+    border: green;
+    border-radius: 20px;
+    background-color: green;
+  }
+  #card-next-five {
+    background-color: transparent;
+    margin: 5px;
+    border: green;
+    border-radius: 20px;
+    background-color: green;
+  }
+  #card-body-next-one {
+    padding: 10px;
+  }
+  #card-body-next-two {
+    padding: 10px;
+  }
+  #card-body-next-three {
+    padding: 10px;
+  }
+  #card-body-next-four {
+    padding: 10px;
+  }
+  #card-body-next-five {
+    padding: 10px;
+  }
+  #date-next-one {
+    text-align: center;
+  }
+  #date-next-two {
+    text-align: center;
+  }
+  #date-next-three {
+    text-align: center;
+  }
+  #date-next-four {
+    text-align: center;
+  }
+  #date-next-five {
+    text-align: center;
+  }
+  #emoji-next-one {
+    font-size: 45px;
+    text-align: center;
+  }
+  #emoji-next-two {
+    font-size: 45px;
+    text-align: center;
+  }
+  #emoji-next-three {
+    font-size: 45px;
+    text-align: center;
+  }
+  #emoji-next-four {
+    font-size: 45px;
+    text-align: center;
+  }
+  #emoji-next-five {
+    font-size: 45px;
     text-align: center;
   }
 }
