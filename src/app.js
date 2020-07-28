@@ -135,7 +135,7 @@ function showTemperatureSearch(response) {
       <div class="d-flex flex-column">
         <div class="card>  
            <div class="card-body" id="card-next">
-              <div class="card-row flex-row align-items-center">
+              <div class="card-row">
                 ${formatDaySearch(forecast.dt * 1000)}
               </div>
               <div class="card-row">
@@ -204,6 +204,55 @@ function showCity(event) {
     let cloudiness = Math.round(response.data.clouds.all);
     let currentCloudiness = document.querySelector("#cloudiness-current");
     currentCloudiness.innerHTML = `${cloudiness}%`;
+    let dateElement = document.querySelector("#current-date");
+    dateElement.innerHTML = formatDateSearch(response.data.dt * 1000);
+    let timeElement = document.querySelector("#current-time");
+    timeElement.innerHTML = formatTimeSearch(response.data.dt * 1000);
+
+    let lat = response.data.coord.lat;
+    let lon = response.data.coord.lon;
+    let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&exclude=hourly,minutely`;
+    axios.get(`${apiUrl}`).then(showForecastGeo);
+
+    function showForecastGeo(response) {
+      console.log(response);
+      let forecastElement = document.querySelector("#forecast");
+      forecastElement.innerHTML = null;
+      let forecast = null;
+
+      for (let index = 1; index < 6; index++) {
+        forecast = response.data.daily[index];
+        forecastElement.innerHTML += `
+      <div class="d-flex flex-column">
+        <div class="card>  
+           <div class="card-body" id="card-next">
+              <div class="card-row">
+                ${formatDaySearch(forecast.dt * 1000)}
+              </div>
+              <div class="card-row">
+                <img src="http://openweathermap.org/img/wn/${
+                  forecast.weather[0].icon
+                }@2x.png" /> 
+              </div>
+              <div class="card-row">
+                <i class="fas fa-long-arrow-alt-down"></i> ${Math.round(
+                  forecast.temp.min
+                )}°
+              </div>
+              <div class="card-row">
+                <i class="fas fa-long-arrow-alt-up"></i> ${Math.round(
+                  forecast.temp.max
+                )}°
+              </div>
+              <div class="card-row">
+                <i class="fas fa-tint"></i> ${Math.round(forecast.humidity)}°
+              </div>
+            </div>
+          </div>
+        </div>`;
+      }
+    }
   }
   navigator.geolocation.getCurrentPosition(showGeolocation);
 }
