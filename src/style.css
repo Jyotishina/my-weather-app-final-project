@@ -89,100 +89,14 @@ ul {
   padding: 10px 20px;
 }
 @media screen and (min-width: 640px) {
-  #card-next-weather {
-    background-color: transparent;
-    border: none;
-    width: 500px;
+  #card-next {
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 20px;
+    width: max-content;
     font-family: "Text Me One", sans-serif;
     font-size: 18px;
-    margin: 0 auto;
-  }
-  #card-body-next-weather {
-    padding: 10px;
-  }
-  #card-next-one {
-    background-color: transparent;
-    margin: 5px;
-    border: green;
-    border-radius: 20px;
-    background-color: green;
-  }
-  #card-next-two {
-    background-color: transparent;
-    margin: 5px;
-    border: green;
-    border-radius: 20px;
-    background-color: green;
-  }
-  #card-next-three {
-    background-color: transparent;
-    margin: 5px;
-    border: green;
-    border-radius: 20px;
-    background-color: green;
-  }
-  #card-next-four {
-    background-color: transparent;
-    margin: 5px;
-    border: green;
-    border-radius: 20px;
-    background-color: green;
-  }
-  #card-next-five {
-    background-color: transparent;
-    margin: 5px;
-    border: green;
-    border-radius: 20px;
-    background-color: green;
-  }
-  #card-body-next-one {
-    padding: 10px;
-  }
-  #card-body-next-two {
-    padding: 10px;
-  }
-  #card-body-next-three {
-    padding: 10px;
-  }
-  #card-body-next-four {
-    padding: 10px;
-  }
-  #card-body-next-five {
-    padding: 10px;
-  }
-  #date-next-one {
     text-align: center;
-  }
-  #date-next-two {
-    text-align: center;
-  }
-  #date-next-three {
-    text-align: center;
-  }
-  #date-next-four {
-    text-align: center;
-  }
-  #date-next-five {
-    text-align: center;
-  }
-  #emoji-next-one {
-    font-size: 45px;
-    text-align: center;
-  }
-  #emoji-next-two {
-    font-size: 45px;
-    text-align: center;
-  }
-  #emoji-next-three {
-    font-size: 45px;
-    text-align: center;
-  }
-  #emoji-next-four {
-    font-size: 45px;
-    text-align: center;
-  }
-  #emoji-next-five {
-    font-size: 45px;
-    text-align: center;
+    margin: 0 5px;
   }
 }

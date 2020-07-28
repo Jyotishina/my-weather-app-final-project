@@ -1,54 +1,4 @@
-// DATE AND TIME - SECTION WEATHER TODAY
-function formatDateStart(dateToday) {
-  let date = dateToday.getDate();
-  let year = dateToday.getFullYear();
-  let days = [
-    "SUNDAY",
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
-  ];
-  let day = days[dateToday.getDay()];
-  let month = dateToday.getMonth() + 1;
-  if (month.toString().length == 1) month = "0" + month;
-
-  return `${day}, ${date}/${month}/${year}`;
-}
-
-function formatTimeStart(timeToday) {
-  let hours = timeToday.getHours();
-  let minutes = timeToday.getMinutes();
-  if (hours.toString().length == 1) hours = "0" + hours;
-  if (minutes.toString().length == 1) minutes = "0" + minutes;
-
-  return `${hours}:${minutes}`;
-}
-
-let today = new Date();
-let dateToday = document.querySelector("#current-date");
-dateToday.innerHTML = formatDateStart(today);
-let timeToday = document.querySelector("#current-time");
-timeToday.innerHTML = formatTimeStart(today);
-
-// DAYS OF THE WEEK - SECTION WEATHER NEXT (WERKT NIET!!)
-let next = new Date();
-let daysNext = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-
-let todayPlusOne = document.querySelector("#date-next-one");
-todayPlusOne.innerHTML = daysNext[next.getDay() + 1];
-let todayPlusTwo = document.querySelector("#date-next-two");
-todayPlusTwo.innerHTML = daysNext[next.getDay() + 2];
-let todayPlusThree = document.querySelector("#date-next-three");
-todayPlusThree.innerHTML = daysNext[next.getDay() + 3];
-let todayPlusFour = document.querySelector("#date-next-four");
-todayPlusFour.innerHTML = daysNext[next.getDay() + 4];
-let todayPlusFive = document.querySelector("#date-next-five");
-todayPlusFive.innerHTML = daysNext[next.getDay() + 5];
-
-// CELCIUS VS FAHRENHEIT TEMP-CURRENT (REST TO BE DONE, HOW ??)
+// CELCIUS VS FAHRENHEIT TEMP-CURRENT (WERKT NIET REST TO BE DONE, HOW ??)
 function convertFahrToCels() {
   buttonTempFahr.removeEventListener("click", convertFahrToCels);
   buttonTempCels.addEventListener("click", convertCelsToFahr);
@@ -88,8 +38,7 @@ let buttonTempCels = document.querySelector(
 buttonTempCels.removeEventListener("click", convertCelsToFahr);
 buttonTempCels.style.color = "rgb(69, 147, 173)";
 
-// FUNCTION SEARCH CITY --- WHAT WITH START POSITION (GEO ?)
-
+// FUNCTION SEARCH CITY
 function formatDateSearch(timestamp) {
   let dateTodaySearch = new Date(timestamp);
   let date = dateTodaySearch.getDate();
@@ -125,14 +74,16 @@ function formatDaySearch(timestamp) {
   return `${day}`;
 }
 
+function search(city) {
+  let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showTemperatureSearch);
+}
+
 function searchCity(event) {
   event.preventDefault();
   let inputCity = document.querySelector("#input-search-city");
-  let showSearchCity = document.querySelector("#current-location");
-  showSearchCity.innerHTML = `${inputCity.value}`;
-  let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(showTemperatureSearch);
+  search(inputCity.value);
 }
 
 function showTemperatureSearch(response) {
@@ -174,20 +125,44 @@ function showTemperatureSearch(response) {
 
   function showForecastSearch(response) {
     console.log(response);
-    let tempMin = Math.round(response.data.daily[1].temp.min);
-    let oneTempMin = document.querySelector("#temp-min-one");
-    oneTempMin.innerHTML = `${tempMin}°`;
-    let tempMax = Math.round(response.data.daily[1].temp.max);
-    let oneTempMax = document.querySelector("#temp-max-one");
-    oneTempMax.innerHTML = `${tempMax}°`;
-    let precipitation = Math.round(response.data.daily[1].humidity);
-    let currentPrecipitation = document.querySelector("#precipitation-one");
-    currentPrecipitation.innerHTML = `${precipitation}%`;
-    let dayElement = document.querySelector("#date-next-one");
-    dayElement.innerHTML = formatDaySearch(response.data.daily[1].dt * 1000);
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = null;
+    let forecast = null;
+
+    for (let index = 1; index < 6; index++) {
+      forecast = response.data.daily[index];
+      forecastElement.innerHTML += `
+      <div class="d-flex flex-column">
+        <div class="card>  
+           <div class="card-body" id="card-next">
+              <div class="card-row flex-row align-items-center">
+                ${formatDaySearch(forecast.dt * 1000)}
+              </div>
+              <div class="card-row">
+                <img src="http://openweathermap.org/img/wn/${
+                  forecast.weather[0].icon
+                }@2x.png" /> 
+              </div>
+              <div class="card-row">
+                <i class="fas fa-long-arrow-alt-down"></i> ${Math.round(
+                  forecast.temp.min
+                )}°
+              </div>
+              <div class="card-row">
+                <i class="fas fa-long-arrow-alt-up"></i> ${Math.round(
+                  forecast.temp.max
+                )}°
+              </div>
+              <div class="card-row">
+                <i class="fas fa-tint"></i> ${Math.round(forecast.humidity)}°
+              </div>
+            </div>
+          </div>
+        </div>`;
+    }
   }
 }
-
+search("Brussels");
 let buttonSearchCity = document.querySelector("#search-form");
 buttonSearchCity.addEventListener("submit", searchCity);
 
@@ -232,7 +207,6 @@ function showCity(event) {
   }
   navigator.geolocation.getCurrentPosition(showGeolocation);
 }
+
 let buttonShowCity = document.querySelector("#button-show-city");
 buttonShowCity.addEventListener("click", showCity);
-
-// FUNCTION 5-DAY FORECAST
