@@ -33,9 +33,10 @@ dateToday.innerHTML = formatDate(today);
 let timeToday = document.querySelector("#current-time");
 timeToday.innerHTML = formatTime(today);
 
-// DAYS OF THE WEEK - SECTION WEATHER NEXT
+// DAYS OF THE WEEK - SECTION WEATHER NEXT (WERKT NIET!!)
 let next = new Date();
 let daysNext = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
 let todayPlusOne = document.querySelector("#date-next-one");
 todayPlusOne.innerHTML = daysNext[next.getDay() + 1];
 let todayPlusTwo = document.querySelector("#date-next-two");
@@ -87,7 +88,7 @@ let buttonTempCels = document.querySelector(
 buttonTempCels.removeEventListener("click", convertCelsToFahr);
 buttonTempCels.style.color = "rgb(69, 147, 173)";
 
-// FUNCTION SEARCH CITY (TEMP/LOCATION WORKS, REST TO BE DONE) -- WHAT WITH START POSITION (GEO ?)
+// FUNCTION SEARCH CITY --- WHAT WITH START POSITION (GEO ?)
 function searchCity(event) {
   event.preventDefault();
   let inputCity = document.querySelector("#input-search-city");
@@ -98,30 +99,61 @@ function searchCity(event) {
   axios.get(`${apiUrl}`).then(showTemperatureSearch);
 }
 
+function showForecastSearch(response) {
+  console.log(response);
+}
+
 function showTemperatureSearch(response) {
   console.log(response);
-  let temp = Math.round(response.data.main.temp);
   let city = response.data.name;
-  let description = response.data.weather[0].description;
-  let windspeed = Math.round(response.data.wind.speed);
-  console.log(response.data.wind.speed);
-  let precipitation = Math.round(response.data.main.humidity);
-  let currentTempGeo = document.querySelector("#temp-current");
-  currentTempGeo.innerHTML = temp;
   let showSearchCity = document.querySelector("#current-location");
   showSearchCity.innerHTML = `${city}`;
-  let currentDescriptionGeo = document.querySelector("#description");
-  let currentWindSpeed = document.querySelector("#wind");
-  let currentPrecipitation = document.querySelector("#precipitation");
-  currentDescriptionGeo.innerHTML = description;
-  currentWindSpeed.innerHTML = `Windspeed: ${windspeed} km/h`;
-  currentPrecipitation.innerHTML = `Precipitation: ${precipitation}%`;
+  let temp = Math.round(response.data.main.temp);
+  let currentTemp = document.querySelector("#temp-current");
+  currentTemp.innerHTML = `${temp}°`;
+  let tempMin = Math.round(response.data.main.temp_min);
+  let currentTempMin = document.querySelector("#temp-current-min");
+  currentTempMin.innerHTML = `${tempMin}°`;
+  let tempMax = Math.round(response.data.main.temp_max);
+  let currentTempMax = document.querySelector("#temp-current-max");
+  currentTempMax.innerHTML = `${tempMax}°`;
+  let description = response.data.weather[0].description;
+  let currentDescriptionGeo = document.querySelector("#description-current");
+  currentDescriptionGeo.innerHTML = `${description}`;
+  let precipitation = Math.round(response.data.main.humidity);
+  let currentPrecipitation = document.querySelector("#precipitation-current");
+  currentPrecipitation.innerHTML = `${precipitation}%`;
+  let windspeed = Math.round(response.data.wind.speed);
+  let currentWindSpeed = document.querySelector("#windspeed-current");
+  currentWindSpeed.innerHTML = `${windspeed}KM/H`;
+  let cloudiness = Math.round(response.data.clouds.all);
+  let currentCloudiness = document.querySelector("#cloudiness-current");
+  currentCloudiness.innerHTML = `${cloudiness}%`;
+
+  let lat = response.data.coord.lat;
+  let lon = response.data.coord.lon;
+  let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&exclude=hourly,minutely`;
+  axios.get(`${apiUrl}`).then(showForecastSearch);
+
+  function showForecastSearch(response) {
+    console.log(response);
+    let tempMin = Math.round(response.data.daily[1].temp.min);
+    let oneTempMin = document.querySelector("#temp-min-one");
+    oneTempMin.innerHTML = `${tempMin}°`;
+    let tempMax = Math.round(response.data.daily[1].temp.max);
+    let oneTempMax = document.querySelector("#temp-max-one");
+    oneTempMax.innerHTML = `${tempMax}°`;
+    let precipitation = Math.round(response.data.daily[1].humidity);
+    let currentPrecipitation = document.querySelector("#precipitation-one");
+    currentPrecipitation.innerHTML = `${precipitation}%`;
+  }
 }
 
 let buttonSearchCity = document.querySelector("#search-form");
 buttonSearchCity.addEventListener("submit", searchCity);
 
-// FUNCTION CURRENT LOCATION (TEMP/LOCATION WORKS, REST TO BE DONE)
+// FUNCTION CURRENT LOCATION (to be updated : forecast!)
 function showCity(event) {
   function showGeolocation(position) {
     console.log(position.coords.latitude);
@@ -134,25 +166,35 @@ function showCity(event) {
   }
 
   function showTemperatureGeo(response) {
-    console.log(response.data);
-    let temp = Math.round(response.data.main.temp);
+    console.log(response);
     let city = response.data.name;
-    let description = response.data.weather[0].description;
-    let windspeed = Math.round(response.data.wind.speed);
-    console.log(response.data.wind.speed);
-    let precipitation = Math.round(response.data.main.humidity);
-    let currentTempGeo = document.querySelector("#temp-current");
-    currentTempGeo.innerHTML = `${temp}`;
     let showSearchCity = document.querySelector("#current-location");
     showSearchCity.innerHTML = `${city}`;
-    let currentDescriptionGeo = document.querySelector("#description");
-    let currentWindSpeed = document.querySelector("#wind");
-    let currentPrecipitation = document.querySelector("#precipitation");
-    currentDescriptionGeo.innerHTML = description;
-    currentWindSpeed.innerHTML = `Windspeed: ${windspeed} km/h`;
-    currentPrecipitation.innerHTML = `Precipitation: ${precipitation}%`;
+    let temp = Math.round(response.data.main.temp);
+    let currentTemp = document.querySelector("#temp-current");
+    currentTemp.innerHTML = `${temp}°`;
+    let tempMin = Math.round(response.data.main.temp_min);
+    let currentTempMin = document.querySelector("#temp-current-min");
+    currentTempMin.innerHTML = `${tempMin}°`;
+    let tempMax = Math.round(response.data.main.temp_max);
+    let currentTempMax = document.querySelector("#temp-current-max");
+    currentTempMax.innerHTML = `${tempMax}°`;
+    let description = response.data.weather[0].description;
+    let currentDescriptionGeo = document.querySelector("#description-current");
+    currentDescriptionGeo.innerHTML = `${description}`;
+    let precipitation = Math.round(response.data.main.humidity);
+    let currentPrecipitation = document.querySelector("#precipitation-current");
+    currentPrecipitation.innerHTML = `${precipitation}%`;
+    let windspeed = Math.round(response.data.wind.speed);
+    let currentWindSpeed = document.querySelector("#windspeed-current");
+    currentWindSpeed.innerHTML = `${windspeed}KM/H`;
+    let cloudiness = Math.round(response.data.clouds.all);
+    let currentCloudiness = document.querySelector("#cloudiness-current");
+    currentCloudiness.innerHTML = `${cloudiness}%`;
   }
   navigator.geolocation.getCurrentPosition(showGeolocation);
 }
 let buttonShowCity = document.querySelector("#button-show-city");
 buttonShowCity.addEventListener("click", showCity);
+
+// FUNCTION 5-DAY FORECAST

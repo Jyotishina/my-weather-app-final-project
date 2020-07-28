@@ -75,10 +75,13 @@ ul {
   #min-max-current {
     text-align: right;
   }
-  #windspeed-current {
+  #precipiation {
+    text-align: left;
+  }
+  #windspeed {
     text-align: center;
   }
-  #cloudiness-current {
+  #cloudiness {
     text-align: right;
   }
 }
