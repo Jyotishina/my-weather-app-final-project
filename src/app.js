@@ -1,5 +1,5 @@
 // DATE AND TIME - SECTION WEATHER TODAY
-function formatDate(dateToday) {
+function formatDateStart(dateToday) {
   let date = dateToday.getDate();
   let year = dateToday.getFullYear();
   let days = [
@@ -18,7 +18,7 @@ function formatDate(dateToday) {
   return `${day}, ${date}/${month}/${year}`;
 }
 
-function formatTime(timeToday) {
+function formatTimeStart(timeToday) {
   let hours = timeToday.getHours();
   let minutes = timeToday.getMinutes();
   if (hours.toString().length == 1) hours = "0" + hours;
@@ -29,9 +29,9 @@ function formatTime(timeToday) {
 
 let today = new Date();
 let dateToday = document.querySelector("#current-date");
-dateToday.innerHTML = formatDate(today);
+dateToday.innerHTML = formatDateStart(today);
 let timeToday = document.querySelector("#current-time");
-timeToday.innerHTML = formatTime(today);
+timeToday.innerHTML = formatTimeStart(today);
 
 // DAYS OF THE WEEK - SECTION WEATHER NEXT (WERKT NIET!!)
 let next = new Date();
@@ -89,6 +89,42 @@ buttonTempCels.removeEventListener("click", convertCelsToFahr);
 buttonTempCels.style.color = "rgb(69, 147, 173)";
 
 // FUNCTION SEARCH CITY --- WHAT WITH START POSITION (GEO ?)
+
+function formatDateSearch(timestamp) {
+  let dateTodaySearch = new Date(timestamp);
+  let date = dateTodaySearch.getDate();
+  let year = dateTodaySearch.getFullYear();
+  let days = [
+    "SUNDAY",
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY",
+  ];
+  let day = days[dateTodaySearch.getDay()];
+  let month = dateTodaySearch.getMonth() + 1;
+  if (month.toString().length == 1) month = "0" + month;
+  return `${day}, ${date}/${month}/${year}`;
+}
+
+function formatTimeSearch(timestamp) {
+  let timeTodaySearch = new Date(timestamp);
+  let hours = timeTodaySearch.getHours();
+  let minutes = timeTodaySearch.getMinutes();
+  if (hours.toString().length == 1) hours = "0" + hours;
+  if (minutes.toString().length == 1) minutes = "0" + minutes;
+  return `Last updated at ${hours}:${minutes}`;
+}
+
+function formatDaySearch(timestamp) {
+  let dayTodaySearch = new Date(timestamp);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let day = days[dayTodaySearch.getDay()];
+  return `${day}`;
+}
+
 function searchCity(event) {
   event.preventDefault();
   let inputCity = document.querySelector("#input-search-city");
@@ -97,10 +133,6 @@ function searchCity(event) {
   let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(showTemperatureSearch);
-}
-
-function showForecastSearch(response) {
-  console.log(response);
 }
 
 function showTemperatureSearch(response) {
@@ -129,6 +161,10 @@ function showTemperatureSearch(response) {
   let cloudiness = Math.round(response.data.clouds.all);
   let currentCloudiness = document.querySelector("#cloudiness-current");
   currentCloudiness.innerHTML = `${cloudiness}%`;
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML = formatDateSearch(response.data.dt * 1000);
+  let timeElement = document.querySelector("#current-time");
+  timeElement.innerHTML = formatTimeSearch(response.data.dt * 1000);
 
   let lat = response.data.coord.lat;
   let lon = response.data.coord.lon;
@@ -147,6 +183,8 @@ function showTemperatureSearch(response) {
     let precipitation = Math.round(response.data.daily[1].humidity);
     let currentPrecipitation = document.querySelector("#precipitation-one");
     currentPrecipitation.innerHTML = `${precipitation}%`;
+    let dayElement = document.querySelector("#date-next-one");
+    dayElement.innerHTML = formatDaySearch(response.data.daily[1].dt * 1000);
   }
 }
 
