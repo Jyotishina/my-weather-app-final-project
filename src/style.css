@@ -10,6 +10,7 @@ ul {
   max-width: max-content;
   margin: 15px auto;
   border-radius: 20px;
+  background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
 }
 .searchCity {
   padding: 20px 20px 0px 20px;
@@ -17,7 +18,7 @@ ul {
 
 .button {
   border-radius: 50px;
-  border: 2px solid green;
+  border: 1px solid white;
   box-shadow: none;
   color: grey;
   font-style: italic;
@@ -30,6 +31,7 @@ ul {
   font-family: "Cabin Sketch", cursive;
   font-size: 60px;
   text-transform: uppercase;
+  color: rgb(130, 63, 146, 0.6);
 }
 #current-date {
   font-family: "Text Me One", sans-serif;
@@ -50,14 +52,14 @@ ul {
     text-align: center;
   }
   #card-current-weather {
-    background-color: transparent;
-    border: 1px solid green;
+    background-color: rgb(130, 63, 146, 0.6);
+    border: none;
     border-radius: 20px;
-    width: 400px;
+    width: 500px;
+    color: pink;
     font-family: "Text Me One", sans-serif;
     font-size: 20px;
     margin: 15px 0 0 0;
-    background-color: green;
   }
   #card-body-current-weather {
     padding: 10px;
@@ -68,9 +70,11 @@ ul {
   #description-current {
     text-transform: uppercase;
   }
+  #current-temperature {
+    text-align: center;
+  }
   #temp-current {
     font-size: 100px;
-    text-align: center;
   }
   #degree-sign-current {
     font-size: 90px;
@@ -93,13 +97,15 @@ ul {
 }
 @media screen and (min-width: 640px) {
   #card-next {
-    background-color: green;
-    border: 1px solid green;
+    background-color: rgb(130, 63, 146, 0.6);
     border-radius: 20px;
     width: max-content;
+    color: pink;
     font-family: "Text Me One", sans-serif;
     font-size: 18px;
     text-align: center;
-    margin: 0 5px;
+  }
+  #forecast {
+    margin: 5px 0 10px 0;
   }
 }

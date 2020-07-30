@@ -2,31 +2,30 @@
 function convertFahrToCels() {
   buttonTempFahr.removeEventListener("click", convertFahrToCels);
   buttonTempCels.addEventListener("click", convertCelsToFahr);
-  let tempToday = document.querySelector("#temp-current");
+  let tempToday = document.querySelector(".temp");
   let tempCels = tempToday.innerText;
   if (tempToday !== undefined) {
     tempToday.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
-    buttonTempFahr.style.color = "rgb(255, 255, 255)";
-    buttonTempFahr.style.background = "rgb(0, 128, 0)";
-    buttonTempCels.style.color = "rgb(0, 128, 0)";
-    buttonTempCels.style.background = "rgb(255, 255, 255)";
+    buttonTempFahr.style.color = "rgb(255, 192, 203)";
+    buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
+    buttonTempCels.style.color = "rgb(130, 63, 146, 0.6)";
+    buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
   }
 }
 
 function convertCelsToFahr() {
   buttonTempCels.removeEventListener("click", convertCelsToFahr);
   buttonTempFahr.addEventListener("click", convertFahrToCels);
-  let tempToday = document.querySelector("#temp-current");
+  let tempToday = document.querySelector(".temp");
   let tempFahr = tempToday.innerText;
   if (tempToday !== undefined) {
     tempToday.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
-    buttonTempCels.style.color = "rgb(255, 255, 255)";
-    buttonTempCels.style.background = "rgb(0, 128, 0)";
-    buttonTempFahr.style.color = "rgb(0, 128, 0)";
-    buttonTempFahr.style.background = "rgb(255, 255, 255)";
+    buttonTempCels.style.color = "rgb(255, 192, 203)";
+    buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+    buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+    buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   }
 }
-
 let buttonTempFahr = document.querySelector(
   "#button-temperature-today-fahrenheit"
 );
@@ -36,7 +35,8 @@ let buttonTempCels = document.querySelector(
   "#button-temperature-today-celcius"
 );
 buttonTempCels.removeEventListener("click", convertCelsToFahr);
-buttonTempCels.style.color = "rgb(69, 147, 173)";
+buttonTempCels.style.color = "rgb(255, 192, 203)";
+buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
 
 // FUNCTION SEARCH CITY
 function formatDateSearch(timestamp) {
@@ -93,13 +93,13 @@ function showTemperatureSearch(response) {
   showSearchCity.innerHTML = `${city}`;
   let temp = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temp-current");
-  currentTemp.innerHTML = `${temp}°`;
+  currentTemp.innerHTML = `${temp}`;
   let tempMin = Math.round(response.data.main.temp_min);
   let currentTempMin = document.querySelector("#temp-current-min");
-  currentTempMin.innerHTML = `${tempMin}°`;
+  currentTempMin.innerHTML = `${tempMin}`;
   let tempMax = Math.round(response.data.main.temp_max);
   let currentTempMax = document.querySelector("#temp-current-max");
-  currentTempMax.innerHTML = `${tempMax}°`;
+  currentTempMax.innerHTML = `${tempMax}`;
   let description = response.data.weather[0].description;
   let currentDescriptionGeo = document.querySelector("#description-current");
   currentDescriptionGeo.innerHTML = `${description}`;
