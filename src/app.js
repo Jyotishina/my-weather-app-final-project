@@ -112,6 +112,13 @@ function showTemperatureSearch(response) {
   let cloudiness = Math.round(response.data.clouds.all);
   let currentCloudiness = document.querySelector("#cloudiness-current");
   currentCloudiness.innerHTML = `${cloudiness}%`;
+  let emoji = response.data.weather[0].icon;
+  let currentEmoji = document.querySelector("#emoji-current");
+  currentEmoji.innerHTML = `
+    <img
+      src="http://openweathermap.org/img/wn/${emoji}@2x.png"
+    id="icon"/>
+  `;
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML = formatDateSearch(response.data.dt * 1000);
   let timeElement = document.querySelector("#current-time");

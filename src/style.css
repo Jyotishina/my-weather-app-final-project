@@ -45,6 +45,10 @@ ul {
   padding: 5px 20px;
 }
 @media screen and (min-width: 640px) {
+  img#icon {
+    width: 150px;
+    text-align: center;
+  }
   #card-current-weather {
     background-color: transparent;
     border: 1px solid green;
@@ -59,7 +63,6 @@ ul {
     padding: 10px;
   }
   #emoji-current {
-    font-size: 100px;
     text-align: center;
   }
   #description-current {
