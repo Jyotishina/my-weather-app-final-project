@@ -27,6 +27,7 @@ function convertCelsToFahr() {
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   });
 }
+
 let buttonTempFahr = document.querySelector(
   "#button-temperature-today-fahrenheit"
 );
@@ -244,19 +245,19 @@ function showCity(event) {
                     }@2x.png" /> 
                   </div>
                   <div class="card-row">
-                    <i class="fas fa-long-arrow-alt-down"></i> ${Math.round(
+                    <i class="fas fa-long-arrow-alt-down"></i> <span class="temp">${Math.round(
                       forecast.temp.min
-                    )}°
+                    )}</span>°
                   </div>
                   <div class="card-row">
-                    <i class="fas fa-long-arrow-alt-up"></i> ${Math.round(
+                    <i class="fas fa-long-arrow-alt-up"></i> <span class="temp">${Math.round(
                       forecast.temp.max
-                    )}°
+                    )}</span>°
                   </div>
                   <div class="card-row">
                     <i class="fas fa-tint"></i> ${Math.round(
                       forecast.humidity
-                    )}°
+                    )}%
                   </div>
                 </div>
               </div>
