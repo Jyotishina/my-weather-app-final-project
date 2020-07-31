@@ -15,10 +15,23 @@ ul {
 .searchCity {
   padding: 20px 20px 0px 20px;
 }
-
+#input-search-city {
+  border: 1px solid pink;
+  color: rgb(130, 63, 146);
+}
+#button-search-city {
+  border: 1px solid pink;
+  color: rgb(130, 63, 146);
+  background-color: transparent;
+}
+#button-show-city {
+  border: 1px solid pink;
+  color: rgb(130, 63, 146);
+  background-color: transparent;
+}
 .button {
   border-radius: 50px;
-  border: 1px solid white;
+  border: 1px solid pink;
   box-shadow: none;
   color: grey;
   font-style: italic;
