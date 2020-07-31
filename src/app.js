@@ -176,7 +176,7 @@ let buttonSearchCity = document.querySelector("#search-form");
 buttonSearchCity.addEventListener("submit", searchCity);
 
 // FUNCTION CURRENT LOCATION
-function showCity(event) {
+function showCity() {
   function showGeolocation(position) {
     console.log(position.coords.latitude);
     let lat = position.coords.latitude;
