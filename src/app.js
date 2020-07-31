@@ -84,6 +84,12 @@ function search(city) {
 
 function searchCity(event) {
   event.preventDefault();
+  buttonTempCels.removeEventListener("click", convertCelsToFahr);
+  buttonTempFahr.addEventListener("click", convertFahrToCels);
+  buttonTempCels.style.color = "rgb(255, 192, 203)";
+  buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+  buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+  buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   let inputCity = document.querySelector("#input-search-city");
   search(inputCity.value);
 }
@@ -177,6 +183,12 @@ buttonSearchCity.addEventListener("submit", searchCity);
 
 // FUNCTION CURRENT LOCATION
 function showCity() {
+  buttonTempCels.removeEventListener("click", convertCelsToFahr);
+  buttonTempFahr.addEventListener("click", convertFahrToCels);
+  buttonTempCels.style.color = "rgb(255, 192, 203)";
+  buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+  buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+  buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   function showGeolocation(position) {
     console.log(position.coords.latitude);
     let lat = position.coords.latitude;
