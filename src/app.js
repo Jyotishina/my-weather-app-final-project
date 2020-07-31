@@ -1,45 +1,3 @@
-// CELCIUS VS FAHRENHEIT TEMP-CURRENT (WERKT NIET REST TO BE DONE, HOW ??)
-
-function convertFahrToCels() {
-  let tempToday = document.querySelectorAll(".temp");
-  tempToday.forEach(function (item) {
-    buttonTempFahr.removeEventListener("click", convertFahrToCels);
-    buttonTempCels.addEventListener("click", convertCelsToFahr);
-    let tempCels = item.innerHTML;
-    item.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
-    buttonTempFahr.style.color = "rgb(255, 192, 203)";
-    buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
-    buttonTempCels.style.color = "rgb(130, 63, 146, 0.6)";
-    buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
-  });
-}
-
-function convertCelsToFahr() {
-  let tempToday = document.querySelectorAll(".temp");
-  tempToday.forEach(function (item) {
-    buttonTempCels.removeEventListener("click", convertCelsToFahr);
-    buttonTempFahr.addEventListener("click", convertFahrToCels);
-    let tempFahr = item.innerText;
-    item.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
-    buttonTempCels.style.color = "rgb(255, 192, 203)";
-    buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
-    buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
-    buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
-  });
-}
-
-let buttonTempFahr = document.querySelector(
-  "#button-temperature-today-fahrenheit"
-);
-buttonTempFahr.addEventListener("click", convertFahrToCels);
-
-let buttonTempCels = document.querySelector(
-  "#button-temperature-today-celcius"
-);
-buttonTempCels.removeEventListener("click", convertCelsToFahr);
-buttonTempCels.style.color = "rgb(255, 192, 203)";
-buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
-
 // FUNCTION SEARCH CITY
 function formatDateSearch(timestamp) {
   let dateTodaySearch = new Date(timestamp);
@@ -282,3 +240,45 @@ function showCity() {
 
 let buttonShowCity = document.querySelector("#button-show-city");
 buttonShowCity.addEventListener("click", showCity);
+
+// CELCIUS VS FAHRENHEIT TEMP-CURRENT (WERKT NIET REST TO BE DONE, HOW ??)
+
+function convertFahrToCels() {
+  let tempToday = document.querySelectorAll(".temp");
+  tempToday.forEach(function (item) {
+    buttonTempFahr.removeEventListener("click", convertFahrToCels);
+    buttonTempCels.addEventListener("click", convertCelsToFahr);
+    let tempCels = item.innerHTML;
+    item.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
+    buttonTempFahr.style.color = "rgb(255, 192, 203)";
+    buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
+    buttonTempCels.style.color = "rgb(130, 63, 146, 0.6)";
+    buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
+  });
+}
+
+function convertCelsToFahr() {
+  let tempToday = document.querySelectorAll(".temp");
+  tempToday.forEach(function (item) {
+    buttonTempCels.removeEventListener("click", convertCelsToFahr);
+    buttonTempFahr.addEventListener("click", convertFahrToCels);
+    let tempFahr = item.innerText;
+    item.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
+    buttonTempCels.style.color = "rgb(255, 192, 203)";
+    buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+    buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+    buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
+  });
+}
+
+let buttonTempFahr = document.querySelector(
+  "#button-temperature-today-fahrenheit"
+);
+buttonTempFahr.addEventListener("click", convertFahrToCels);
+
+let buttonTempCels = document.querySelector(
+  "#button-temperature-today-celcius"
+);
+buttonTempCels.removeEventListener("click", convertCelsToFahr);
+buttonTempCels.style.color = "rgb(255, 192, 203)";
+buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
