@@ -24,17 +24,26 @@ ul {
   color: rgb(130, 63, 146);
   background-color: transparent;
 }
+#button-search-city:hover {
+  background-color: pink;
+}
 #button-show-city {
   border: 1px solid pink;
   color: rgb(130, 63, 146);
   background-color: transparent;
 }
+#button-show-city:hover {
+  background-color: pink;
+}
 .button {
   border-radius: 50px;
   border: 1px solid pink;
   box-shadow: none;
-  color: grey;
   font-style: italic;
+  color: grey;
+}
+.button:focus {
+  outline: 0;
 }
 #choose-unit {
   color: grey;
@@ -166,6 +175,11 @@ img#icon {
 }
 #forecast {
   margin: 5px 0 10px 0;
+}
+
+.openCode {
+  display: block;
+  text-align: center;
 }
 
 @media screen and (max-width: 640px) {

@@ -254,6 +254,8 @@ function convertFahrToCels() {
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
     buttonTempCels.style.color = "rgb(130, 63, 146, 0.6)";
     buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
+    buttonTempFahr.style.cursor = "text";
+    buttonTempCels.style.cursor = "pointer";
   });
 }
 
@@ -268,6 +270,8 @@ function convertCelsToFahr() {
     buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
     buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
+    buttonTempCels.style.cursor = "text";
+    buttonTempFahr.style.cursor = "pointer";
   });
 }
 
@@ -282,3 +286,7 @@ let buttonTempCels = document.querySelector(
 buttonTempCels.removeEventListener("click", convertCelsToFahr);
 buttonTempCels.style.color = "rgb(255, 192, 203)";
 buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
+buttonTempCels.style.cursor = "text";
+buttonTempFahr.style.cursor = "pointer";
