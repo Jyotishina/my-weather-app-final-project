@@ -1,30 +1,31 @@
 // CELCIUS VS FAHRENHEIT TEMP-CURRENT (WERKT NIET REST TO BE DONE, HOW ??)
+
 function convertFahrToCels() {
-  buttonTempFahr.removeEventListener("click", convertFahrToCels);
-  buttonTempCels.addEventListener("click", convertCelsToFahr);
-  let tempToday = document.querySelector(".temp");
-  let tempCels = tempToday.innerText;
-  if (tempToday !== undefined) {
-    tempToday.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
+  let tempToday = document.querySelectorAll(".temp");
+  tempToday.forEach(function (item) {
+    buttonTempFahr.removeEventListener("click", convertFahrToCels);
+    buttonTempCels.addEventListener("click", convertCelsToFahr);
+    let tempCels = item.innerHTML;
+    item.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
     buttonTempFahr.style.color = "rgb(255, 192, 203)";
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
     buttonTempCels.style.color = "rgb(130, 63, 146, 0.6)";
     buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
-  }
+  });
 }
 
 function convertCelsToFahr() {
-  buttonTempCels.removeEventListener("click", convertCelsToFahr);
-  buttonTempFahr.addEventListener("click", convertFahrToCels);
-  let tempToday = document.querySelector(".temp");
-  let tempFahr = tempToday.innerText;
-  if (tempToday !== undefined) {
-    tempToday.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
+  let tempToday = document.querySelectorAll(".temp");
+  tempToday.forEach(function (item) {
+    buttonTempCels.removeEventListener("click", convertCelsToFahr);
+    buttonTempFahr.addEventListener("click", convertFahrToCels);
+    let tempFahr = item.innerText;
+    item.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
     buttonTempCels.style.color = "rgb(255, 192, 203)";
     buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
     buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
-  }
+  });
 }
 let buttonTempFahr = document.querySelector(
   "#button-temperature-today-fahrenheit"
@@ -151,17 +152,17 @@ function showTemperatureSearch(response) {
                   }@2x.png" /> 
                 </div>
                 <div class="card-row">
-                  <i class="fas fa-long-arrow-alt-down"></i> ${Math.round(
+                  <i class="fas fa-long-arrow-alt-down"></i> <span class="temp">${Math.round(
                     forecast.temp.min
-                  )}°
+                  )}</span>°
                 </div>
                 <div class="card-row">
-                  <i class="fas fa-long-arrow-alt-up"></i> ${Math.round(
+                  <i class="fas fa-long-arrow-alt-up"></i> <span class="temp">${Math.round(
                     forecast.temp.max
-                  )}°
+                  )}</span>°
                 </div>
                 <div class="card-row">
-                  <i class="fas fa-tint"></i> ${Math.round(forecast.humidity)}°
+                  <i class="fas fa-tint"></i> ${Math.round(forecast.humidity)}%
                 </div>
               </div>
             </div>
@@ -192,13 +193,13 @@ function showCity(event) {
     showSearchCity.innerHTML = `${city}`;
     let temp = Math.round(response.data.main.temp);
     let currentTemp = document.querySelector("#temp-current");
-    currentTemp.innerHTML = `${temp}°`;
+    currentTemp.innerHTML = `${temp}`;
     let tempMin = Math.round(response.data.main.temp_min);
     let currentTempMin = document.querySelector("#temp-current-min");
-    currentTempMin.innerHTML = `${tempMin}°`;
+    currentTempMin.innerHTML = `${tempMin}`;
     let tempMax = Math.round(response.data.main.temp_max);
     let currentTempMax = document.querySelector("#temp-current-max");
-    currentTempMax.innerHTML = `${tempMax}°`;
+    currentTempMax.innerHTML = `${tempMax}`;
     let description = response.data.weather[0].description;
     let currentDescriptionGeo = document.querySelector("#description-current");
     currentDescriptionGeo.innerHTML = `${description}`;
