@@ -16,7 +16,7 @@ body {
 }
 #button-search-city {
   border: 1px solid pink;
-  color: rgb(130, 63, 146);
+  color: grey;
   background-color: transparent;
 }
 #button-search-city:hover {
@@ -24,7 +24,7 @@ body {
 }
 #button-show-city {
   border: 1px solid pink;
-  color: rgb(130, 63, 146);
+  color: grey;
   background-color: transparent;
 }
 #button-show-city:hover {
@@ -34,8 +34,8 @@ body {
   border-radius: 50px;
   border: 1px solid pink;
   box-shadow: none;
-  font-style: italic;
   color: grey;
+  margin: 0 10px;
 }
 .button:focus {
   outline: 0;
@@ -49,12 +49,13 @@ body {
   font-family: "Cabin Sketch", cursive;
   font-size: 60px;
   text-transform: uppercase;
-  color: rgb(130, 63, 146, 0.6);
+  color: rgb(130, 63, 146);
 }
 #current-date {
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
   text-transform: capitalize;
+  color: grey;
 }
 #current-time {
   font-family: "Text Me One", sans-serif;
@@ -66,6 +67,7 @@ body {
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
   text-transform: capitalize;
+  color: grey;
 }
 .weatherToday {
   padding: 5px 20px;
@@ -78,7 +80,7 @@ img#icon {
   background-color: rgb(130, 63, 146, 0.6);
   border: none;
   border-radius: 20px;
-  width: 500px;
+  width: 520px;
   color: pink;
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
@@ -127,12 +129,16 @@ img#icon {
   font-family: "Text Me One", sans-serif;
   font-size: 18px;
   text-align: center;
+  margin: 0 3px;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 #forecast {
   margin: 5px 0 10px 0;
 }
 .unitConversion {
-  padding: 10px 20px;
+  padding: 0 20px 10px 20px;
 }
 .openCode {
   display: block;
@@ -162,6 +168,7 @@ img#icon {
   }
   #description-current {
     text-transform: uppercase;
+    font-size: 14px;
   }
   #current-temperature {
     text-align: center;
@@ -174,15 +181,19 @@ img#icon {
   }
   #min-max-current {
     text-align: right;
+    font-size: 14px;
   }
-  #precipiation {
+  #precipitation {
     text-align: left;
+    font-size: 14px;
   }
   #windspeed {
     text-align: center;
+    font-size: 14px;
   }
   #cloudiness {
     text-align: right;
+    font-size: 14px;
   }
   #card-next {
     background-color: rgb(130, 63, 146, 0.6);

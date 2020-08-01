@@ -48,7 +48,7 @@ function searchCity(event) {
   buttonTempFahr.addEventListener("click", convertFahrToCels);
   buttonTempCels.style.color = "rgb(255, 192, 203)";
   buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
-  buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+  buttonTempFahr.style.color = "rgb(128 128 128)";
   buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   let inputCity = document.querySelector("#input-search-city");
   search(inputCity.value);
@@ -147,7 +147,7 @@ function showCity() {
   buttonTempFahr.addEventListener("click", convertFahrToCels);
   buttonTempCels.style.color = "rgb(255, 192, 203)";
   buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
-  buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+  buttonTempFahr.style.color = "rgb(128 128 128)";
   buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   function showGeolocation(position) {
     console.log(position.coords.latitude);
@@ -172,7 +172,7 @@ function convertFahrToCels() {
     item.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
     buttonTempFahr.style.color = "rgb(255, 192, 203)";
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
-    buttonTempCels.style.color = "rgb(130, 63, 146, 0.6)";
+    buttonTempCels.style.color = "rgb(128 128 128)";
     buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
     buttonTempFahr.style.cursor = "text";
     buttonTempCels.style.cursor = "pointer";
@@ -188,7 +188,7 @@ function convertCelsToFahr() {
     item.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
     buttonTempCels.style.color = "rgb(255, 192, 203)";
     buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
-    buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+    buttonTempFahr.style.color = "rgb(128 128 128)";
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
     buttonTempCels.style.cursor = "text";
     buttonTempFahr.style.cursor = "pointer";
@@ -214,7 +214,7 @@ let buttonTempCels = document.querySelector(
 buttonTempCels.removeEventListener("click", convertCelsToFahr);
 buttonTempCels.style.color = "rgb(255, 192, 203)";
 buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
-buttonTempFahr.style.color = "rgb(130, 63, 146, 0.6)";
+buttonTempFahr.style.color = "rgb(128 128 128)";
 buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
 buttonTempCels.style.cursor = "text";
 buttonTempFahr.style.cursor = "pointer";
