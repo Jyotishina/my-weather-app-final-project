@@ -34,7 +34,7 @@ section .searchCity {
   font-family: "Cabin Sketch", cursive;
   font-size: 60px;
   text-transform: uppercase;
-  color: rgb(130, 63, 146);
+  color: rgb(130, 63, 146, 0.8);
 }
 #current-date {
   font-family: "Text Me One", sans-serif;
@@ -46,7 +46,7 @@ section .searchCity {
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
-  color: rgb(130, 63, 146);
+  color: rgb(130, 63, 146, 0.8);
 }
 section .weatherToday {
   padding: 5px 20px;
@@ -187,7 +187,7 @@ section .unitConversion {
     font-family: "Cabin Sketch", cursive;
     font-size: 40px;
     text-transform: uppercase;
-    color: rgb(130, 63, 146);
+    color: rgb(130, 63, 146, 0.8);
   }
   #current-date {
     font-family: "Text Me One", sans-serif;
@@ -199,7 +199,7 @@ section .unitConversion {
     font-family: "Text Me One", sans-serif;
     font-size: 18px;
     text-transform: uppercase;
-    color: rgb(130, 63, 146);
+    color: rgb(130, 63, 146, 0.8);
   }
 
   section .weatherToday {
