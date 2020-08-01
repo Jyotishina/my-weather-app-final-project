@@ -1,4 +1,4 @@
-// FUNCTION SEARCH CITY
+// FORMAT DATE AND TIME FUNCTIONS
 function formatDateSearch(timestamp) {
   let dateTodaySearch = new Date(timestamp);
   let date = dateTodaySearch.getDate();
@@ -34,6 +34,7 @@ function formatDaySearch(timestamp) {
   return `${day}`;
 }
 
+// FUNCTION SEARCH LOCATION
 function search(city) {
   let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -135,9 +136,6 @@ function showTemperatureSearch(response) {
     }
   }
 }
-search("Brussels");
-let buttonSearchCity = document.querySelector("#search-form");
-buttonSearchCity.addEventListener("submit", searchCity);
 
 // FUNCTION CURRENT LOCATION
 function showCity() {
@@ -154,95 +152,13 @@ function showCity() {
     let lon = position.coords.longitude;
     let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-    axios.get(`${apiUrl}`).then(showTemperatureGeo);
+    axios.get(`${apiUrl}`).then(showTemperatureSearch);
   }
 
-  function showTemperatureGeo(response) {
-    console.log(response);
-    let city = response.data.name;
-    let showSearchCity = document.querySelector("#current-location");
-    showSearchCity.innerHTML = `${city}`;
-    let temp = Math.round(response.data.main.temp);
-    let currentTemp = document.querySelector("#temp-current");
-    currentTemp.innerHTML = `${temp}`;
-    let tempMin = Math.round(response.data.main.temp_min);
-    let currentTempMin = document.querySelector("#temp-current-min");
-    currentTempMin.innerHTML = `${tempMin}`;
-    let tempMax = Math.round(response.data.main.temp_max);
-    let currentTempMax = document.querySelector("#temp-current-max");
-    currentTempMax.innerHTML = `${tempMax}`;
-    let description = response.data.weather[0].description;
-    let currentDescriptionGeo = document.querySelector("#description-current");
-    currentDescriptionGeo.innerHTML = `${description}`;
-    let precipitation = Math.round(response.data.main.humidity);
-    let currentPrecipitation = document.querySelector("#precipitation-current");
-    currentPrecipitation.innerHTML = `${precipitation}%`;
-    let windspeed = Math.round(response.data.wind.speed);
-    let currentWindSpeed = document.querySelector("#windspeed-current");
-    currentWindSpeed.innerHTML = `${windspeed}KM/H`;
-    let cloudiness = Math.round(response.data.clouds.all);
-    let currentCloudiness = document.querySelector("#cloudiness-current");
-    currentCloudiness.innerHTML = `${cloudiness}%`;
-    let dateElement = document.querySelector("#current-date");
-    dateElement.innerHTML = formatDateSearch(response.data.dt * 1000);
-    let timeElement = document.querySelector("#current-time");
-    timeElement.innerHTML = formatTimeSearch(response.data.dt * 1000);
-
-    let lat = response.data.coord.lat;
-    let lon = response.data.coord.lon;
-    let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&exclude=hourly,minutely`;
-    axios.get(`${apiUrl}`).then(showForecastGeo);
-
-    function showForecastGeo(response) {
-      console.log(response);
-      let forecastElement = document.querySelector("#forecast");
-      forecastElement.innerHTML = null;
-      let forecast = null;
-
-      for (let index = 1; index < 6; index++) {
-        forecast = response.data.daily[index];
-        forecastElement.innerHTML += `
-          <div class="d-flex flex-column">
-            <div class="card>  
-              <div class="card-body" id="card-next">
-                  <div class="card-row">
-                    ${formatDaySearch(forecast.dt * 1000)}
-                  </div>
-                  <div class="card-row">
-                    <img src="http://openweathermap.org/img/wn/${
-                      forecast.weather[0].icon
-                    }@2x.png" /> 
-                  </div>
-                  <div class="card-row">
-                    <i class="fas fa-long-arrow-alt-down"></i> <span class="temp">${Math.round(
-                      forecast.temp.min
-                    )}</span>°
-                  </div>
-                  <div class="card-row">
-                    <i class="fas fa-long-arrow-alt-up"></i> <span class="temp">${Math.round(
-                      forecast.temp.max
-                    )}</span>°
-                  </div>
-                  <div class="card-row">
-                    <i class="fas fa-tint"></i> ${Math.round(
-                      forecast.humidity
-                    )}%
-                  </div>
-                </div>
-              </div>
-            </div>`;
-      }
-    }
-  }
   navigator.geolocation.getCurrentPosition(showGeolocation);
 }
 
-let buttonShowCity = document.querySelector("#button-show-city");
-buttonShowCity.addEventListener("click", showCity);
-
-// CELCIUS VS FAHRENHEIT TEMP-CURRENT (WERKT NIET REST TO BE DONE, HOW ??)
-
+// CONVERT TEMPERATURE FUNCTIONS
 function convertFahrToCels() {
   let tempToday = document.querySelectorAll(".temp");
   tempToday.forEach(function (item) {
@@ -274,6 +190,14 @@ function convertCelsToFahr() {
     buttonTempFahr.style.cursor = "pointer";
   });
 }
+
+// STARTPOSITION WEATHER APP
+search("Brussels");
+let buttonSearchCity = document.querySelector("#search-form");
+buttonSearchCity.addEventListener("submit", searchCity);
+
+let buttonShowCity = document.querySelector("#button-show-city");
+buttonShowCity.addEventListener("click", showCity);
 
 let buttonTempFahr = document.querySelector(
   "#button-temperature-today-fahrenheit"
