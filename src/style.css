@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
 }
 .weatherApp {
   max-width: max-content;
@@ -56,7 +56,7 @@ img#icon {
   text-align: center;
 }
 #card-current-weather {
-  background-color: rgb(130, 63, 146, 0.6);
+  background-color: rgb(130, 63, 146, 0.4);
   border: none;
   border-radius: 10px;
   width: 520px;
@@ -108,7 +108,7 @@ section .weatherNext {
   margin: 5px 0 10px 0;
 }
 #card-next {
-  background-color: rgb(130, 63, 146, 0.6);
+  background-color: rgb(130, 63, 146, 0.4);
   border-radius: 10px;
   width: max-content;
   color: pink;
@@ -140,12 +140,15 @@ section .unitConversion {
 }
 .openCode {
   display: block;
+  font-family: "Text Me One", sans-serif;
+  color: rgb(130, 63, 146);
   text-align: center;
+  font-style: bold;
 }
 
 @media screen and (max-width: 640px) {
   body {
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
   }
   .weatherApp {
     max-width: max-content;
@@ -207,7 +210,7 @@ section .unitConversion {
     text-align: center;
   }
   #card-current-weather {
-    background-color: rgb(130, 63, 146, 0.6);
+    background-color: rgb(130, 63, 146, 0.4);
     border: none;
     border-radius: 10px;
     width: 520px;
@@ -268,7 +271,7 @@ section .unitConversion {
     margin: 5px 0 10px 0;
   }
   #card-next {
-    background-color: rgb(130, 63, 146, 0.6);
+    background-color: rgb(130, 63, 146, 0.4);
     color: pink;
     font-family: "Text Me One", sans-serif;
     font-size: 14px;
@@ -300,6 +303,9 @@ section .unitConversion {
   }
   .openCode {
     display: block;
+    font-family: "Text Me One", sans-serif;
+    color: rgb(130, 63, 146);
     text-align: center;
+    font-style: bold;
   }
 }

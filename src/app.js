@@ -47,7 +47,7 @@ function searchCity(event) {
   buttonTempCels.removeEventListener("click", convertCelsToFahr);
   buttonTempFahr.addEventListener("click", convertFahrToCels);
   buttonTempCels.style.color = "rgb(255, 192, 203)";
-  buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+  buttonTempCels.style.background = "rgb(130, 63, 146, 0.4)";
   buttonTempFahr.style.color = "rgb(128 128 128)";
   buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   let inputCity = document.querySelector("#input-search-city");
@@ -146,7 +146,7 @@ function showCity() {
   buttonTempCels.removeEventListener("click", convertCelsToFahr);
   buttonTempFahr.addEventListener("click", convertFahrToCels);
   buttonTempCels.style.color = "rgb(255, 192, 203)";
-  buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+  buttonTempCels.style.background = "rgb(130, 63, 146, 0.4)";
   buttonTempFahr.style.color = "rgb(128 128 128)";
   buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
   function showGeolocation(position) {
@@ -171,7 +171,7 @@ function convertFahrToCels() {
     let tempCels = item.innerHTML;
     item.innerHTML = parseInt(Math.round(tempCels * 1.8 + 32), 0);
     buttonTempFahr.style.color = "rgb(255, 192, 203)";
-    buttonTempFahr.style.background = "rgb(130, 63, 146, 0.6)";
+    buttonTempFahr.style.background = "rgb(130, 63, 146, 0.4)";
     buttonTempCels.style.color = "rgb(128 128 128)";
     buttonTempCels.style.background = "rgb(130, 63, 146, 0)";
     buttonTempFahr.style.cursor = "text";
@@ -187,7 +187,7 @@ function convertCelsToFahr() {
     let tempFahr = item.innerText;
     item.innerHTML = parseInt(Math.round((tempFahr - 32) / 1.8), 0);
     buttonTempCels.style.color = "rgb(255, 192, 203)";
-    buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+    buttonTempCels.style.background = "rgb(130, 63, 146, 0.4)";
     buttonTempFahr.style.color = "rgb(128 128 128)";
     buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
     buttonTempCels.style.cursor = "text";
@@ -213,7 +213,7 @@ let buttonTempCels = document.querySelector(
 );
 buttonTempCels.removeEventListener("click", convertCelsToFahr);
 buttonTempCels.style.color = "rgb(255, 192, 203)";
-buttonTempCels.style.background = "rgb(130, 63, 146, 0.6)";
+buttonTempCels.style.background = "rgb(130, 63, 146, 0.4)";
 buttonTempFahr.style.color = "rgb(128 128 128)";
 buttonTempFahr.style.background = "rgb(130, 63, 146, 0)";
 buttonTempCels.style.cursor = "text";
