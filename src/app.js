@@ -2,15 +2,16 @@
 function formatDateSearch(timestamp) {
   let dateTodaySearch = new Date(timestamp);
   let date = dateTodaySearch.getDate();
+  if (date.toString().length == 1) date = "0" + date;
   let year = dateTodaySearch.getFullYear();
   let days = [
-    "SUNDAY",
-    "MONDAY",
-    "TUESDAY",
-    "WEDNESDAY",
-    "THURSDAY",
-    "FRIDAY",
-    "SATURDAY",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   let day = days[dateTodaySearch.getDay()];
   let month = dateTodaySearch.getMonth() + 1;
@@ -61,6 +62,9 @@ function showTemperatureSearch(response) {
   let temp = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#temp-current");
   currentTemp.innerHTML = `${temp}`;
+  let tempFeel = Math.round(response.data.main.feels_like);
+  let currentTempFeel = document.querySelector("#temp-current-feel");
+  currentTempFeel.innerHTML = `${tempFeel}`;
   let tempMin = Math.round(response.data.main.temp_min);
   let currentTempMin = document.querySelector("#temp-current-min");
   currentTempMin.innerHTML = `${tempMin}`;

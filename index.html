@@ -54,33 +54,22 @@
               </div>
             </form>
           </div>
-          <div
-            class="d-flex flex-row justify-content-center align-items-center"
-            id="choose-unit"
-          >
-            Show temperature in &nbsp
-            <button class="button" id="button-temperature-today-celcius">
-              °C
-            </button>
-            &nbsp or &nbsp
-            <button class="button" id="button-temperature-today-fahrenheit">
-              °F
-            </button>
-          </div>
         </section>
 
         <section class="weatherToday">
+          <div class="d-flex flex-row justify-content-center" id="current-date">
+            Mon, 27 JUL
+          </div>
+
           <div
             class="d-flex flex-row justify-content-center"
             id="current-location"
           >
             Brussels
           </div>
-          <div class="d-flex flex-row justify-content-center" id="current-date">
-            Mon, 27 JUL
-          </div>
-          <div class="d-flex flex-row justify-content-center" id="current-time">
-            14:50
+          <div class="d-flex flex-row justify-content-center" id="current-feel">
+            Current feel:&nbsp
+            <span class="temp" id="temp-current-feel">10</span>°
           </div>
           <div class="d-flex flex-row justify-content-center">
             <div class="card" id="card-current-weather">
@@ -122,12 +111,30 @@
               </div>
             </div>
           </div>
+          <div class="d-flex flex-row justify-content-center" id="current-time">
+            14:50
+          </div>
         </section>
         <section class="weatherNext">
           <div
             class="d-flex flex-row justify-content-center"
             id="forecast"
           ></div>
+        </section>
+        <section class="unitConversion">
+          <div
+            class="d-flex flex-row justify-content-center align-items-center"
+            id="choose-unit"
+          >
+            Show degrees in &nbsp
+            <button class="button" id="button-temperature-today-celcius">
+              °C
+            </button>
+            &nbsp or &nbsp
+            <button class="button" id="button-temperature-today-fahrenheit">
+              °F
+            </button>
+          </div>
         </section>
       </section>
     </div>

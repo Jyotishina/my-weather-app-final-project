@@ -1,11 +1,6 @@
 body {
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 }
-
-ul {
-  list-style: none;
-  padding: 0;
-}
 .weatherApp {
   max-width: max-content;
   margin: 15px auto;
@@ -46,8 +41,9 @@ ul {
   outline: 0;
 }
 #choose-unit {
+  font-family: "Text Me One", sans-serif;
+  font-size: 16px;
   color: grey;
-  font-style: italic;
 }
 #current-location {
   font-family: "Cabin Sketch", cursive;
@@ -58,17 +54,22 @@ ul {
 #current-date {
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 #current-time {
   font-family: "Text Me One", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
+  text-transform: initial;
+  color: grey;
+}
+#current-feel {
+  font-family: "Text Me One", sans-serif;
+  font-size: 20px;
   text-transform: capitalize;
 }
 .weatherToday {
   padding: 5px 20px;
 }
-
 img#icon {
   width: 150px;
   text-align: center;
@@ -112,6 +113,30 @@ img#icon {
 }
 #cloudiness {
   text-align: right;
+}
+
+.weatherNext {
+  padding: 10px 20px;
+}
+
+#card-next {
+  background-color: rgb(130, 63, 146, 0.6);
+  border-radius: 20px;
+  width: max-content;
+  color: pink;
+  font-family: "Text Me One", sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+#forecast {
+  margin: 5px 0 10px 0;
+}
+.unitConversion {
+  padding: 10px 20px;
+}
+.openCode {
+  display: block;
+  text-align: center;
 }
 
 @media screen and (max-width: 640px) {
@@ -159,30 +184,6 @@ img#icon {
   #cloudiness {
     text-align: right;
   }
-}
-.weatherNext {
-  padding: 10px 20px;
-}
-
-#card-next {
-  background-color: rgb(130, 63, 146, 0.6);
-  border-radius: 20px;
-  width: max-content;
-  color: pink;
-  font-family: "Text Me One", sans-serif;
-  font-size: 18px;
-  text-align: center;
-}
-#forecast {
-  margin: 5px 0 10px 0;
-}
-
-.openCode {
-  display: block;
-  text-align: center;
-}
-
-@media screen and (max-width: 640px) {
   #card-next {
     background-color: rgb(130, 63, 146, 0.6);
     border-radius: 20px;
