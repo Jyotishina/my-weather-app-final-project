@@ -4,10 +4,10 @@ body {
 .weatherApp {
   max-width: max-content;
   margin: 15px auto;
-  border-radius: 20px;
+  border-radius: 10px;
   background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
 }
-.searchCity {
+section .searchCity {
   padding: 20px 20px 0px 20px;
 }
 #input-search-city {
@@ -30,21 +30,6 @@ body {
 #button-show-city:hover {
   background-color: pink;
 }
-.button {
-  border-radius: 50px;
-  border: 1px solid pink;
-  box-shadow: none;
-  color: grey;
-  margin: 0 10px;
-}
-.button:focus {
-  outline: 0;
-}
-#choose-unit {
-  font-family: "Text Me One", sans-serif;
-  font-size: 16px;
-  color: grey;
-}
 #current-location {
   font-family: "Cabin Sketch", cursive;
   font-size: 60px;
@@ -57,19 +42,13 @@ body {
   text-transform: capitalize;
   color: grey;
 }
-#current-time {
-  font-family: "Text Me One", sans-serif;
-  font-size: 16px;
-  text-transform: initial;
-  color: grey;
-}
 #current-feel {
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   color: rgb(130, 63, 146);
 }
-.weatherToday {
+section .weatherToday {
   padding: 5px 20px;
 }
 img#icon {
@@ -79,7 +58,7 @@ img#icon {
 #card-current-weather {
   background-color: rgb(130, 63, 146, 0.6);
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   width: 520px;
   color: pink;
   font-family: "Text Me One", sans-serif;
@@ -88,6 +67,12 @@ img#icon {
 }
 #card-body-current-weather {
   padding: 10px;
+}
+#current-time {
+  font-family: "Text Me One", sans-serif;
+  font-size: 16px;
+  text-transform: initial;
+  color: grey;
 }
 #emoji-current {
   text-align: center;
@@ -107,7 +92,7 @@ img#icon {
 #min-max-current {
   text-align: right;
 }
-#precipiation {
+#precipitation {
   text-align: left;
 }
 #windspeed {
@@ -116,29 +101,42 @@ img#icon {
 #cloudiness {
   text-align: right;
 }
-
-.weatherNext {
+section .weatherNext {
   padding: 10px 20px;
 }
-
+#forecast {
+  margin: 5px 0 10px 0;
+}
 #card-next {
   background-color: rgb(130, 63, 146, 0.6);
-  border-radius: 20px;
+  border-radius: 10px;
   width: max-content;
   color: pink;
   font-family: "Text Me One", sans-serif;
   font-size: 18px;
   text-align: center;
   margin: 0 3px;
-
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 10px 0;
 }
-#forecast {
-  margin: 5px 0 10px 0;
-}
-.unitConversion {
+section .unitConversion {
   padding: 0 20px 10px 20px;
+}
+.button {
+  border-radius: 50px;
+  border: 1px solid pink;
+  box-shadow: none;
+  color: grey;
+  margin: 0 10px;
+}
+.button:focus {
+  outline: 0;
+}
+#choose-unit {
+  font-family: "Text Me One", sans-serif;
+  font-size: 16px;
+  color: grey;
 }
 .openCode {
   display: block;
@@ -146,18 +144,73 @@ img#icon {
 }
 
 @media screen and (max-width: 640px) {
+  body {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  }
+  .weatherApp {
+    max-width: max-content;
+    margin: 15px auto;
+    border-radius: 10px;
+    background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+  }
+
+  section .searchCity {
+    padding: 20px 20px 0px 20px;
+  }
+  #input-search-city {
+    border: 1px solid pink;
+    color: rgb(130, 63, 146);
+    font-size: 14px;
+  }
+  #button-search-city {
+    border: 1px solid pink;
+    color: grey;
+    background-color: transparent;
+    font-size: 14px;
+  }
+  #button-search-city:hover {
+    background-color: pink;
+  }
+  #button-show-city {
+    border: 1px solid pink;
+    color: grey;
+    background-color: transparent;
+    font-size: 14px;
+  }
+  #button-show-city:hover {
+    background-color: pink;
+  }
+  #current-location {
+    font-family: "Cabin Sketch", cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: rgb(130, 63, 146);
+  }
+  #current-date {
+    font-family: "Text Me One", sans-serif;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: grey;
+  }
+  #current-feel {
+    font-family: "Text Me One", sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: rgb(130, 63, 146);
+  }
+
+  section .weatherToday {
+    padding: 5px 20px;
+  }
   img#icon {
     width: 100px;
     text-align: center;
   }
-  img#icon-next {
-    width: 55px;
-  }
   #card-current-weather {
     background-color: rgb(130, 63, 146, 0.6);
     border: none;
-    border-radius: 20px;
-    width: 500px;
+    border-radius: 10px;
+    width: 520px;
     color: pink;
     font-family: "Text Me One", sans-serif;
     font-size: 20px;
@@ -165,6 +218,12 @@ img#icon {
   }
   #card-body-current-weather {
     padding: 10px;
+  }
+  #current-time {
+    font-family: "Text Me One", sans-serif;
+    font-size: 16px;
+    text-transform: initial;
+    color: grey;
   }
   #emoji-current {
     text-align: center;
@@ -198,15 +257,49 @@ img#icon {
     text-align: right;
     font-size: 16px;
   }
+
+  section .weatherNext {
+    padding: 10px 20px;
+  }
+  img#icon-next {
+    width: 55px;
+  }
+  #forecast {
+    margin: 5px 0 10px 0;
+  }
   #card-next {
     background-color: rgb(130, 63, 146, 0.6);
     color: pink;
     font-family: "Text Me One", sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     width: max-content;
+    border-radius: 10px;
+    margin: 0 3px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 0;
   }
-  #forecast {
-    margin: 5px 0 10px 0;
+  section .unitConversion {
+    padding: 0 20px 10px 20px;
+  }
+  .button {
+    border-radius: 50px;
+    border: 1px solid pink;
+    box-shadow: none;
+    color: grey;
+    margin: 0 10px;
+  }
+  .button:focus {
+    outline: 0;
+  }
+  #choose-unit {
+    font-family: "Text Me One", sans-serif;
+    font-size: 16px;
+    color: grey;
+  }
+  .openCode {
+    display: block;
+    text-align: center;
   }
 }
