@@ -66,8 +66,8 @@ body {
 #current-feel {
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
-  text-transform: capitalize;
-  color: grey;
+  text-transform: uppercase;
+  color: rgb(130, 63, 146);
 }
 .weatherToday {
   padding: 5px 20px;
@@ -84,7 +84,7 @@ img#icon {
   color: pink;
   font-family: "Text Me One", sans-serif;
   font-size: 20px;
-  margin: 15px 0 0 0;
+  margin: 15px 0 5px 0;
 }
 #card-body-current-weather {
   padding: 10px;
@@ -150,6 +150,9 @@ img#icon {
     width: 100px;
     text-align: center;
   }
+  img#icon-next {
+    width: 55px;
+  }
   #card-current-weather {
     background-color: rgb(130, 63, 146, 0.6);
     border: none;
@@ -168,7 +171,7 @@ img#icon {
   }
   #description-current {
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 16px;
   }
   #current-temperature {
     text-align: center;
@@ -181,27 +184,25 @@ img#icon {
   }
   #min-max-current {
     text-align: right;
-    font-size: 14px;
+    font-size: 16px;
   }
   #precipitation {
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
   }
   #windspeed {
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
   }
   #cloudiness {
     text-align: right;
-    font-size: 14px;
+    font-size: 16px;
   }
   #card-next {
     background-color: rgb(130, 63, 146, 0.6);
-    border-radius: 20px;
-
     color: pink;
     font-family: "Text Me One", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     width: max-content;
   }

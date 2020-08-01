@@ -117,7 +117,7 @@ function showTemperatureSearch(response) {
                   ${formatDaySearch(forecast.dt * 1000)}
                 </div>
                 <div class="card-row">
-                  <img src="http://openweathermap.org/img/wn/${
+                  <img id="icon-next" src="http://openweathermap.org/img/wn/${
                     forecast.weather[0].icon
                   }@2x.png" /> 
                 </div>
