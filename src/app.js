@@ -37,9 +37,14 @@ function formatDaySearch(timestamp) {
 
 // FUNCTION SEARCH LOCATION
 function search(city) {
-  let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(showTemperatureSearch);
+  console.log(city);
+  if (city !== undefined) {
+    alert("stop");
+  } else {
+    let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(`${apiUrl}`).then(showTemperatureSearch);
+  }
 }
 
 function searchCity(event) {
