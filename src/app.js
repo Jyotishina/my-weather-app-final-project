@@ -38,7 +38,7 @@ function formatDaySearch(timestamp) {
 // FUNCTION SEARCH LOCATION
 function search(city) {
   console.log(city);
-  if (city !== undefined) {
+  if (city === undefined) {
     alert("stop");
   } else {
     let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
