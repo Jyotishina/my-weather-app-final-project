@@ -39,18 +39,14 @@ function formatDaySearch(timestamp) {
 function search(city) {
   let apiKey = "5105e9ba47cefb06b8ba8c75ae83f74e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  fetch(`${apiUrl}`).then(async (data) => {
-    if (data.ok) {
-      data = axios.get(`${apiUrl}`).then(showTemperatureSearch);
-    } else {
-      alert(
-        `Little error.
+  axios.get(`${apiUrl}`).then(showTemperatureSearch, function (error) {
+    alert(
+      `Little error.
         1. Did you fill in a city?
         2. Is the city spelled correctly?
         Still not working ?
         3. Try going to https://www.google.com/search?q=weather+${city}`
-      );
-    }
+    );
   });
 }
 
